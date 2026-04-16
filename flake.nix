@@ -17,6 +17,10 @@
   in {
     packages.x86_64-linux.crossAarch64 = {
       rsyslog = crossPkgs.callPackage ./rsyslog.nix {};
+      rsyslog_sin_Gcrpyt = crossPkgs.callPackage ./rsyslog.nix {
+        withGcrypt = false;
+      };
+      Gcrypt = crossPkgs.libgcrupt;
     };
   };
 }
