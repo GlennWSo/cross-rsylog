@@ -16,11 +16,13 @@
     };
   in {
     packages.x86_64-linux = {
+      cross_Gcrypt = crossPkgs.libgcrypt;
+
+      cross_rsyslog = crossPkgs.callPackage ./rsyslog.nix {};
+      cross_rsyslog_2512 = crossPkgs.callPackage ./rsyslog8_2512.nix {};
       cross_rsyslog_working = crossPkgs.callPackage ./rsyslog8_2512.nix {
         withGcrypt = false;
       };
-      cross_rsyslog = crossPkgs.callPackage ./rsyslog.nix {};
-      cross_Gcrypt = crossPkgs.libgcrypt;
     };
   };
 }
