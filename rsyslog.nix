@@ -8,6 +8,8 @@
   libestr,
   json_c,
   zlib,
+  protobufc,
+  protobuf,
   docutils,
   libfastjson,
   withKrb5 ? true,
@@ -62,17 +64,18 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "rsyslog";
-  version = "8.2512.0";
+  version = "8.2602.0";
 
   src = fetchurl {
     url = "https://www.rsyslog.com/files/download/rsyslog/rsyslog-${finalAttrs.version}.tar.gz";
-    hash = "sha256-k8UAJdkLbHlfo1DVaj2DK/zkUEPqm9aCQNnCqTlLxik=";
+    hash = "sha256-T+UlbOoEbXdUbTYELQkOOEGEvCQEHs2l0DwD010eq7s=";
   };
 
   nativeBuildInputs = [
     pkg-config
     autoreconfHook
     docutils
+    protobufc
   ];
 
   buildInputs =
@@ -81,6 +84,7 @@ stdenv.mkDerivation (finalAttrs: {
       libestr
       json_c
       zlib
+      protobuf
     ]
     ++ lib.optional withKrb5 libkrb5
     ++ lib.optional withJemalloc jemalloc
