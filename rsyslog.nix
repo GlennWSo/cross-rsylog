@@ -1,3 +1,4 @@
+# based on https://github.com/NixOS/nixpkgs/blob/7f6a95f08d364c1155d124f74306131fcdcf9265/pkgs/by-name/rs/rsyslog/package.nix
 {
   lib,
   stdenv,
